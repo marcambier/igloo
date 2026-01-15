@@ -1,0 +1,91 @@
+{
+  "users": [
+    {
+      "name": "igloo",
+      "password_hash": "Gzh4Q8Cwmt+LVTGHAGrvg2ewJY6dxmAZY8LXp6wPIOYe/e2e",
+      "tags": "administrator"
+    }
+  ],
+  "vhosts": [
+    {
+      "name": "/"
+    }
+  ],
+  "permissions": [
+    {
+      "user": "igloo",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    }
+  ],
+  "exchanges": [
+    {
+      "name": "igloo.exchange",
+      "vhost": "/",
+      "type": "direct",
+      "durable": true
+    }
+  ],
+  "queues": [
+    {
+      "name": "beer.ordered.queue",
+      "vhost": "/",
+      "auto_delete": false,
+      "arguments": {},
+      "durable": true
+    },
+    {
+      "name": "beer.ordered.timeout.queue",
+      "vhost": "/",
+      "auto_delete": false,
+      "arguments": {},
+      "durable": true
+    },
+    {
+      "name": "low.stock.queue",
+      "vhost": "/",
+      "auto_delete": false,
+      "arguments": {},
+      "durable": true
+    },
+    {
+      "name": "go.back.home.queue",
+      "vhost": "/",
+      "auto_delete": false,
+      "arguments": {},
+      "durable": true
+    }
+  ],
+  "bindings": [
+    {
+      "vhost": "/",
+      "source": "igloo.exchange",
+      "destination": "beer.ordered.queue",
+      "destination_type": "queue",
+      "routing_key": "beer.ordered"
+    },
+    {
+      "vhost": "/",
+      "source": "igloo.exchange",
+      "destination": "beer.ordered.timeout.queue",
+      "destination_type": "queue",
+      "routing_key": "beer.ordered"
+    },
+    {
+      "vhost": "/",
+      "source": "igloo.exchange",
+      "destination": "low.stock.queue",
+      "destination_type": "queue",
+      "routing_key": "low.stock"
+    },
+    {
+      "vhost": "/",
+      "source": "igloo.exchange",
+      "destination": "go.back.home.queue",
+      "destination_type": "queue",
+      "routing_key": "go.back.home"
+    }
+  ]
+}

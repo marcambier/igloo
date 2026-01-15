@@ -1,0 +1,78 @@
+{
+  "realm": "bulldozer",
+  "enabled": true,
+  "displayName": "Bulldozer Realm",
+  "clients": [
+    {
+      "clientId": "bulldozer-client",
+      "name": "bulldozer Client",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "secret": "bulldozer-client-secret",
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "standardFlowEnabled": false,
+      "implicitFlowEnabled": false,
+      "bearerOnly": false,
+      "redirectUris": [],
+      "webOrigins": [],
+      "defaultClientScopes": [
+        "roles",
+        "profile",
+        "email"
+      ]
+    }
+  ],
+  "roles": {
+    "realm": [
+      {
+        "name": "ADMIN",
+        "description": "ADMIN role"
+      },
+      {
+        "name": "EMPLOYEE",
+        "description": "EMPLOYEE role"
+      }
+    ]
+  },
+  "users": [
+    {
+      "username": "marc",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Marc",
+      "lastName": "Cambier",
+      "email": "marcc@gmx.fr",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "ADMIN",
+        "EMPLOYEE"
+      ]
+    },
+    {
+      "username": "juliano",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Juliano",
+      "lastName": "Franchetto",
+      "email": "juliano@bulldozer-collective.com",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "EMPLOYEE"
+      ]
+    }
+  ]
+}

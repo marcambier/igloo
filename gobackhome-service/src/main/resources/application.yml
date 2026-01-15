@@ -1,0 +1,10 @@
+spring:
+
+  application:
+    name: gobackhome-service
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: igloo
+    password: igloo
